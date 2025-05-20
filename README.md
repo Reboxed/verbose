@@ -27,3 +27,12 @@ Dunno really, but
 ### Contributing
 
 Idk, ig don’t make messy code 🤷‍♂️. I’ll just look at it dunno wat to tell ya.
+
+### Planned
+
+- [x] Colorful logging
+- [ ] Saving to log file
+- [ ] Template strings to customize the layout
+- [ ] Custom colors
+- [ ] Custom log file saver code
+
