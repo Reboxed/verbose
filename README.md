@@ -1,4 +1,5 @@
 # Verbose
+
 Verbose is the simple logger used in Rebxd and Cryticl as of now and written entirely in Golang.
 This will be later expanded with more functionality, customization and saving.
 
@@ -17,7 +18,12 @@ go get github.com/Reboxed/verbose
 
 ### Why?
 
-Dunno,
+Dunno really, but
+
 > open sourced our simple logging code. xdd. mostly cuz i extracted it out into it's own package to reuse it more easily and i was like "why not open source it".
-> 
-> \- FoxTale-Labs, founder of Rebxd
+
+*\- FoxTale-Labs, founder of Rebxd*
+
+### Contributing
+
+Idk, ig don’t make messy code 🤷‍♂️. I’ll just look at it dunno wat to tell ya.
