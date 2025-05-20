@@ -1,6 +1,6 @@
 module github.com/Reboxed/verbose
 
-go 1.24.2
+go 1.20
 
 require (
 	github.com/fatih/color v1.18.0 // indirect
