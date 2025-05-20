@@ -6,8 +6,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Reboxed/verbose/colors"
-
 	"github.com/fatih/color"
 )
 
@@ -24,7 +22,7 @@ func Print(tag string, a ...string) (n int, err error) {
 	return Printf(tag, strings.Join(a, ""))
 }
 func Printf(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag, "Print", colors.Neutral)
+	_, tagerr := tagf(tag, "Print", neutralColor)
 	if tagerr != nil {
 		return 0, tagerr
 	}
@@ -37,7 +35,7 @@ func Warn(tag string, a ...string) (n int, err error) {
 	return Warnf(tag, strings.Join(a, ""))
 }
 func Warnf(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag /* +" WARN" */, "Warn", colors.Warn)
+	_, tagerr := tagf(tag /* +" WARN" */, "Warn", warnColor)
 	if tagerr != nil {
 		return 0, tagerr
 	}
@@ -50,7 +48,7 @@ func Info(tag string, a ...string) (n int, err error) {
 	return Infof(tag, strings.Join(a, ""))
 }
 func Infof(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag /* +" INFO" */, "Info", colors.Info)
+	_, tagerr := tagf(tag /* +" INFO" */, "Info", infoColor)
 	if tagerr != nil {
 		return 0, tagerr
 	}
@@ -63,7 +61,7 @@ func Success(tag string, a ...string) (n int, err error) {
 	return Successf(tag, strings.Join(a, ""))
 }
 func Successf(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag /* +" OK" */, "Ok", colors.Success)
+	_, tagerr := tagf(tag /* +" OK" */, "Ok", successColor)
 	if tagerr != nil {
 		return 0, tagerr
 	}
@@ -76,7 +74,7 @@ func Error(tag string, a ...string) (n int, err error) {
 	return Errorf(tag, strings.Join(a, ""))
 }
 func Errorf(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag /* +" ERR" */, "Error", colors.Error)
+	_, tagerr := tagf(tag /* +" ERR" */, "Error", errorColor)
 	if tagerr != nil {
 		return 0, tagerr
 	}
