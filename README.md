@@ -19,4 +19,5 @@ go get github.com/Reboxed/verbose
 
 Dunno,
 > open sourced our simple logging code. xdd. mostly cuz i extracted it out into it's own package to reuse it more easily and i was like "why not open source it".
+> 
 > \- FoxTale-Labs, founder of Rebxd
