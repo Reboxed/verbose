@@ -1,6 +1,6 @@
 # Verbose
 
-Verbose is the simple logger used in Rebxd and Cryticl as of now and written entirely in Golang.
+Verbose is the simple logger used in Rebxd and Cryticl, as of now, and written entirely in Golang.
 This will be later expanded with more functionality, customization and saving.
 
 It's a color coded system with stuff like TAG, Date+Time, Status and message all neatly organized and colored.
