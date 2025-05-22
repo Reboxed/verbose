@@ -1,83 +1,24 @@
 package verbose
 
 import (
-	"fmt"
-	"os"
-	"strings"
-	"time"
+    "fmt"
+    "os"
+    "strings"
+    "time"
 
-	"github.com/fatih/color"
+    "github.com/fatih/color"
 )
 
-func tagf(tag string, status string, color *color.Color) (n int, err error) {
-	t := time.Now()
-	return fmt.Printf("%s| %02d.%02d.%d - %02d:%02d:%02d |%s| ",
-		color.Sprintf(" %s%s ", tag, strings.Repeat(" ", 15-len(tag))),
-		t.Day(), t.Month(), t.Year(), t.Hour(), t.Minute(), t.Second(),
-		color.Sprintf(" %-5s ", status))
-}
+func Debugf(tag string, format string, status string, color *color.Color, a []string, b ...interface{}) (n int, err error) {
+    t := time.Now()
+    _, tagerr := fmt.Printf("%s| %02d.%02d.%d - %02d:%02d:%02d |%s| ",
+        color.Sprintf(" %s%s ", tag, strings.Repeat(" ", 15-len(tag))),
+        t.Day(), t.Month(), t.Year(), t.Hour(), t.Minute(), t.Second(),
+        color.Sprintf(" %-5s ", status))
 
-func Print(tag string, a ...string) (n int, err error) {
-	a = append(a, "\n")
-	return Printf(tag, strings.Join(a, ""))
-}
-func Printf(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag, "Print", neutralColor)
-	if tagerr != nil {
-		return 0, tagerr
-	}
+    if tagerr != nil {
+        return 0, tagerr
+    }
 
-	return fmt.Fprintf(os.Stdout, format, a...)
-}
-
-func Warn(tag string, a ...string) (n int, err error) {
-	a = append(a, "\n")
-	return Warnf(tag, strings.Join(a, ""))
-}
-func Warnf(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag /* +" WARN" */, "Warn", warnColor)
-	if tagerr != nil {
-		return 0, tagerr
-	}
-
-	return fmt.Fprintf(os.Stdout, format, a...)
-}
-
-func Info(tag string, a ...string) (n int, err error) {
-	a = append(a, "\n")
-	return Infof(tag, strings.Join(a, ""))
-}
-func Infof(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag /* +" INFO" */, "Info", infoColor)
-	if tagerr != nil {
-		return 0, tagerr
-	}
-
-	return fmt.Fprintf(os.Stdout, format, a...)
-}
-
-func Success(tag string, a ...string) (n int, err error) {
-	a = append(a, "\n")
-	return Successf(tag, strings.Join(a, ""))
-}
-func Successf(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag /* +" OK" */, "Ok", successColor)
-	if tagerr != nil {
-		return 0, tagerr
-	}
-
-	return fmt.Fprintf(os.Stdout, format, a...)
-}
-
-func Error(tag string, a ...string) (n int, err error) {
-	a = append(a, "\n")
-	return Errorf(tag, strings.Join(a, ""))
-}
-func Errorf(tag string, format string, a ...interface{}) (n int, err error) {
-	_, tagerr := tagf(tag /* +" ERR" */, "Error", errorColor)
-	if tagerr != nil {
-		return 0, tagerr
-	}
-
-	return fmt.Fprintf(os.Stdout, format, a...)
+    return fmt.Fprintf(os.Stdout, strings.Join(append(a, "\n"), ""), b...)
 }
