@@ -34,9 +34,9 @@ func Printf(tag string, format string, a ...interface{}) (int, error) {
 	return fmt.Fprintf(os.Stdout, format, a...)
 }
 
-func Debug(tag string, a ...interface{}) (n int, err error) {
+func Debug(tag string, a ...string) (n int, err error) {
 	a = append(a, "\n")
-	return Debugf(tag, fmt.Sprintf(tag, a...))
+	return Debugf(tag, strings.Join(a, ""))
 }
 func Debugf(tag string, format string, a ...interface{}) (int, error) {
 	if _, err := tagf(tag, "Debug", debugColor); err != nil {
