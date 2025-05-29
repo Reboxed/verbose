@@ -27,7 +27,7 @@ func Print(tag string, a ...string) (n int, err error) {
 
 // Deprecated: This function has been replaced by Debugf
 func Printf(tag string, format string, a ...interface{}) (int, error) {
-	if _, err := tagf(tag, "Print", neutralColor); err != nil {
+	if _, err := tagf(tag, "Print", NeutralColor); err != nil {
 		return 0, err
 	}
 
@@ -39,7 +39,18 @@ func Debug(tag string, a ...string) (n int, err error) {
 	return Debugf(tag, strings.Join(a, ""))
 }
 func Debugf(tag string, format string, a ...interface{}) (int, error) {
-	if _, err := tagf(tag, "Debug", debugColor); err != nil {
+	if _, err := tagf(tag, "Debug", DebugColor); err != nil {
+		return 0, err
+	}
+	return fmt.Fprintf(os.Stdout, format, a...)
+}
+
+func Custom(tag string, typeStr string, color *color.Color, a ...string) (n int, err error) {
+	a = append(a, "\n")
+	return Custom(tag, typeStr, color, strings.Join(a, ""))
+}
+func Customf(tag string, typeStr string, color *color.Color, format string, a ...interface{}) (n int, err error) {
+	if _, err := tagf(tag, typeStr, color); err != nil {
 		return 0, err
 	}
 	return fmt.Fprintf(os.Stdout, format, a...)
@@ -50,7 +61,7 @@ func Warn(tag string, a ...string) (int, error) {
 	return Warnf(tag, strings.Join(a, ""))
 }
 func Warnf(tag string, format string, a ...interface{}) (int, error) {
-	if _, err := tagf(tag, "Warn", warnColor); err != nil {
+	if _, err := tagf(tag, "Warn", WarnColor); err != nil {
 		return 0, err
 	}
 
@@ -62,7 +73,7 @@ func Info(tag string, a ...string) (int, error) {
 	return Infof(tag, strings.Join(a, ""))
 }
 func Infof(tag string, format string, a ...interface{}) (int, error) {
-	if _, err := tagf(tag, "Info", infoColor); err != nil {
+	if _, err := tagf(tag, "Info", InfoColor); err != nil {
 		return 0, err
 	}
 
@@ -74,7 +85,7 @@ func Success(tag string, a ...string) (n int, err error) {
 	return Successf(tag, strings.Join(a, ""))
 }
 func Successf(tag string, format string, a ...interface{}) (int, error) {
-	if _, err := tagf(tag, "Ok", successColor); err != nil {
+	if _, err := tagf(tag, "Ok", SuccessColor); err != nil {
 		return 0, err
 	}
 
@@ -86,7 +97,7 @@ func Error(tag string, a ...string) (int, error) {
 	return Errorf(tag, strings.Join(a, ""))
 }
 func Errorf(tag string, format string, a ...interface{}) (int, error) {
-	if _, err := tagf(tag, "Error", errorColor); err != nil {
+	if _, err := tagf(tag, "Error", ErrorColor); err != nil {
 		return 0, err
 	}
 
