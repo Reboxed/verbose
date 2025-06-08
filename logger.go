@@ -21,8 +21,7 @@ func tagf(tag string, status string, color *color.Color) (int, error) {
 
 // Deprecated: This function has been replaced by Debug
 func Print(tag string, a ...string) (n int, err error) {
-	a = append(a, "\n")
-	return Printf(tag, strings.Join(a, ""))
+	return Printf(tag, "%q\n", strings.Join(a, ""))
 }
 
 // Deprecated: This function has been replaced by Debugf
@@ -35,8 +34,7 @@ func Printf(tag string, format string, a ...interface{}) (int, error) {
 }
 
 func Debug(tag string, a ...string) (n int, err error) {
-	a = append(a, "\n")
-	return Debugf(tag, strings.Join(a, ""))
+	return Debugf(tag, "%q\n", strings.Join(a, ""))
 }
 func Debugf(tag string, format string, a ...interface{}) (int, error) {
 	if _, err := tagf(tag, "Debug", DebugColor); err != nil {
@@ -46,8 +44,7 @@ func Debugf(tag string, format string, a ...interface{}) (int, error) {
 }
 
 func Custom(tag string, typeStr string, color *color.Color, a ...string) (n int, err error) {
-	a = append(a, "\n")
-	return Custom(tag, typeStr, color, strings.Join(a, ""))
+	return Customf(tag, typeStr, color, "%q\n", strings.Join(a, ""))
 }
 func Customf(tag string, typeStr string, color *color.Color, format string, a ...interface{}) (n int, err error) {
 	if _, err := tagf(tag, typeStr, color); err != nil {
@@ -57,8 +54,7 @@ func Customf(tag string, typeStr string, color *color.Color, format string, a ..
 }
 
 func Warn(tag string, a ...string) (int, error) {
-	a = append(a, "\n")
-	return Warnf(tag, strings.Join(a, ""))
+	return Warnf(tag, "%q\n", strings.Join(a, ""))
 }
 func Warnf(tag string, format string, a ...interface{}) (int, error) {
 	if _, err := tagf(tag, "Warn", WarnColor); err != nil {
@@ -69,8 +65,7 @@ func Warnf(tag string, format string, a ...interface{}) (int, error) {
 }
 
 func Info(tag string, a ...string) (int, error) {
-	a = append(a, "\n")
-	return Infof(tag, strings.Join(a, ""))
+	return Infof(tag, "%q\n", strings.Join(a, ""))
 }
 func Infof(tag string, format string, a ...interface{}) (int, error) {
 	if _, err := tagf(tag, "Info", InfoColor); err != nil {
@@ -81,8 +76,7 @@ func Infof(tag string, format string, a ...interface{}) (int, error) {
 }
 
 func Success(tag string, a ...string) (n int, err error) {
-	a = append(a, "\n")
-	return Successf(tag, strings.Join(a, ""))
+	return Successf(tag, "%q\n", strings.Join(a, ""))
 }
 func Successf(tag string, format string, a ...interface{}) (int, error) {
 	if _, err := tagf(tag, "Ok", SuccessColor); err != nil {
@@ -93,8 +87,7 @@ func Successf(tag string, format string, a ...interface{}) (int, error) {
 }
 
 func Error(tag string, a ...string) (int, error) {
-	a = append(a, "\n")
-	return Errorf(tag, strings.Join(a, ""))
+	return Errorf(tag, "%q\n", strings.Join(a, ""))
 }
 func Errorf(tag string, format string, a ...interface{}) (int, error) {
 	if _, err := tagf(tag, "Error", ErrorColor); err != nil {
