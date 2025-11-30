@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/efekarakus/termcolor"
+	"github.com/Reboxed/termcolor"
 	"github.com/fatih/color"
 )
 
