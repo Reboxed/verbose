@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> MOVED TO https://codeberg.org/Rebxed/verbose
+
 # Verbose
 
 Verbose is the simple logger used in Rebxd, as of now, and written entirely in Golang.  
