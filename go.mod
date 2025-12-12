@@ -1,4 +1,4 @@
-module github.com/Reboxed/verbose
+module code.rebxd.com/Rebxd/verbose
 
 go 1.20
 
