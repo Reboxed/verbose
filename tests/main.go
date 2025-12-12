@@ -1,6 +1,6 @@
 package main
 
-import "github.com/Reboxed/verbose"
+import "code.rebxd.com/Rebxd/verbose"
 
 func main() {
 	verbose.Success("TEST", "This is a test success log")

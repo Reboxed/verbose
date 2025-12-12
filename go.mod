@@ -1,9 +1,9 @@
 module code.rebxd.com/Rebxd/verbose
 
-go 1.20
+go 1.22
 
 require (
-	github.com/Reboxed/termcolor v1.0.4
+	code.rebxd.com/Rebxd/termcolor v1.0.5
 	github.com/fatih/color v1.18.0
 )
 
