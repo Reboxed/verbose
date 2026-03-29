@@ -13,7 +13,7 @@ It's a color coded system with stuff like TAG, Date+Time, Status and message all
 ### How To Install
 
 ```
-go get code.rebxd.com/Rebxd/verbose
+go get github.com/reboxed/verbose
 ```
 
 ### Why?
