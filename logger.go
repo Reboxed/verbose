@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"code.rebxd.com/Rebxd/termcolor"
 	"github.com/fatih/color"
+	"github.com/reboxed/termcolor"
 )
 
 var SupportsTrueColor bool = false
